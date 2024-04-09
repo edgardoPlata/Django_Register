@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-title {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #666;
+}
+
+</style>
+<div class="container">
+    <h2 class="section-title">Productos</h2>
+    <div class="product-list">
+        <div class="product">
+            <h3 class="product-title">Producto 1</h3>
+            <p class="product-description">Descripción del producto 1</p>
+            
+        </div>
+        <div class="product">
+            <h3 class="product-title">Producto 2</h3>
+            <p class="product-description">Descripción del producto 2</p>
+            
+        </div>
+        <div class="product">
+            <h3 class="product-title">Producto 3</h3>
+            <p class="product-description">Descripción del producto 3</p>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+

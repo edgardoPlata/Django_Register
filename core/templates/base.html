@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Color de fondo más claro */
+            color: #333; /* Color de texto principal */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007bff; /* Color azul vibrante */
+            margin-bottom: 20px;
+            text-align: center; /* Centrar el título */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center; /* Centrar la lista */
+        }
+
+        ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff; /* Color azul para enlaces */
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3; /* Color azul más oscuro al pasar el ratón */
+        }
+
+        @media (max-width: 768px) {
+            ul li {
+                display: block;
+                margin-bottom: 10px;
+                text-align: center; /* Centrar en dispositivos más pequeños */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inicio</h2>
+        <ul>
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'products' %}">Productos</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'exit' %}">Salir</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+            {% endif %}
+        </ul>
+
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
+
